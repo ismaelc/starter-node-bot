@@ -54,7 +54,7 @@ controller.hears('help', ['direct_message', 'direct_mention'], function(bot, mes
     bot.reply(message, help)
 })
 
-/*
+
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function (bot, message) {
 
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
@@ -67,7 +67,14 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     text: text,
     color: '#7CD197'
   }]
-*/
+  
+    bot.reply(message, {
+        attachments: attachments
+    }, function(err, resp) {
+        console.log(err, resp)
+    })
+})
+
 
 controller.hears(['approval02'], ['direct_message', 'direct_mention'], function(bot, message) {
     var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
