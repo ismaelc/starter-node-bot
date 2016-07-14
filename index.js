@@ -77,8 +77,9 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function(
 
 
 controller.hears(['approval02'], ['direct_message', 'direct_mention'], function(bot, message) {
-    var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
+    //var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
     var attachments = [{
+        "pretext": "*John Agan* has *3* outstanding reports for your review.",
         "color": "#2ab27b",
         "fields": [{
             "title": "Report Name",
