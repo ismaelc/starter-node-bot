@@ -63,12 +63,12 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     text: text,
     color: '#7CD197'
   }]
-  
+
   controller.hears(['approval02'], ['direct_message', 'direct_mention'], function (bot, message) {
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
   var attachments = [{
    "username":"Expense Bot",
-   "text":"*John Smith* has *3* outstanding reports for your review.",
+   "text":"*John Agan* has *3* outstanding reports for your review.",
    "icon_url":"https://i.imgsafe.org/980d567293.png",
    "attachments":[
       {
@@ -91,7 +91,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
             },
 				{
                "value":":white_check_mark: Approved"
-               
+
             }
          ]
 	  },{
@@ -173,7 +173,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
             }
          ]
       }, {
-      	"text": "<https://concur.com|View In Concur>"      	
+      	"text": "<https://concur.com|View In Concur>"
       }
 ​
    ]
