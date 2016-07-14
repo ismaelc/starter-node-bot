@@ -63,6 +63,121 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
     text: text,
     color: '#7CD197'
   }]
+  
+  controller.hears(['approval02'], ['direct_message', 'direct_mention'], function (bot, message) {
+  var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
+  var attachments = [{
+   "username":"Expense Bot",
+   "text":"*John Agan* has *3* outstanding reports for your review.",
+   "icon_url":"https://i.imgsafe.org/980d567293.png",
+   "attachments":[
+      {
+		 "color": "#2ab27b",
+         "fields":[
+            {
+               "title":"Report Name",
+               "value":"Trip to Seattle",
+               "short":true
+            },
+            {
+               "title":"Date",
+               "value":"7/1/2016",
+               "short":true
+            },
+            {
+               "title":"Amount",
+               "value":"$9,000.00",
+               "short":true
+            },
+				{
+               "value":":white_check_mark: Approved"
+               
+            }
+         ]
+	  },{
+         "fields":[
+            {
+               "title":"Report Name",
+               "value":"Trip to Seattle",
+               "short":true
+            },
+            {
+               "title":"Date",
+               "value":"7/1/2016",
+               "short":true
+            },
+            {
+               "title":"Amount",
+               "value":"$9,000.00",
+               "short":true
+            },
+            {
+               "title":"Status",
+               "value":"Pending Review",
+               "short":true
+            }
+         ],
+         "actions":[
+            {
+               "name":"Approve",
+               "text":"Approve",
+               "type":"button",
+               "style":"primary",
+               "value":"approve"
+            },
+            {
+               "name":"Reject",
+               "text":"Reject",
+               "type":"button",
+               "style":"danger",
+               "value":"Reject"
+            }
+         ]
+      },{
+         "fields":[
+            {
+               "title":"Report Name",
+               "value":"Trip to Seattle",
+               "short":true
+            },
+            {
+               "title":"Date",
+               "value":"7/1/2016",
+               "short":true
+            },
+            {
+               "title":"Amount",
+               "value":"$9,000.00",
+               "short":true
+            },
+            {
+               "title":"Status",
+               "value":"Pending Review",
+               "short":true
+            }
+         ],
+         "actions":[
+            {
+               "name":"Approve",
+               "text":"Approve",
+               "type":"button",
+               "style":"primary",
+               "value":"approve"
+            },
+            {
+               "name":"Reject",
+               "text":"Reject",
+               "type":"button",
+               "style":"danger",
+               "value":"Reject"
+            }
+         ]
+      }, {
+      	"text": "<https://concur.com|View In Concur>"      	
+      }
+​
+   ]
+}]
 
   bot.reply(message, {
     attachments: attachments
