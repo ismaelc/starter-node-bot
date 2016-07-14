@@ -68,7 +68,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
   var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
   var attachments = [{
    "username":"Expense Bot",
-   "text":"*John Agan* has *3* outstanding reports for your review.",
+   "text":"*John Smith* has *3* outstanding reports for your review.",
    "icon_url":"https://i.imgsafe.org/980d567293.png",
    "attachments":[
       {
