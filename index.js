@@ -19,11 +19,13 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+//TODO: Need to secure these incoming calls
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
 app.post('/slack/webhook', function(request, response) {
+    console.log(request.body);
     response.send("pogi");
 });
 
@@ -81,7 +83,6 @@ controller.hears('help', ['direct_message', 'direct_mention'], function(bot, mes
     bot.reply(message, help)
 })
 
-
 controller.hears(['attachment'], ['direct_message', 'direct_mention'], function(bot, message) {
 
     var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
@@ -101,7 +102,6 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function(
         console.log(err, resp)
     })
 })
-
 
 controller.hears(['approval02'], ['direct_message', 'direct_mention'], function(bot, message) {
     //var text = 'Beep Beep Boop is a ridiculously simple hosting platform for your Slackbots.'
