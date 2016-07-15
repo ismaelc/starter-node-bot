@@ -1,4 +1,6 @@
 var Botkit = require('botkit')
+var express  = require('express')
+var app      = express()
 
 var token = process.env.SLACK_TOKEN
 
