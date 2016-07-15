@@ -126,6 +126,8 @@ controller.hears(['approval02'], ['direct_message', 'direct_mention'], function(
 
         }]
     }, {
+        "fallback" : "Fallback test",
+        "callback_id" : "approval_02",
         "fields": [{
             "title": "Report Name",
             "value": "Trip to Seattle",
