@@ -2,6 +2,15 @@ var Botkit = require('botkit')
 var express  = require('express')
 var app      = express()
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({
+    limit: '50mb'
+})); // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    extended: true
+})); // to support URL-encoded bodies
+
 var token = process.env.SLACK_TOKEN
 
 var controller = Botkit.slackbot({
