@@ -197,3 +197,7 @@ controller.hears(['approval02'], ['direct_message', 'direct_mention'], function(
 controller.hears('.*', ['direct_message', 'direct_mention'], function(bot, message) {
     bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
