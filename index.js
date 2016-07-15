@@ -23,6 +23,10 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.post('/slack/webhook', function(request, response) {
+    response.send("pogi");
+});
+
 var token = process.env.SLACK_TOKEN
 
 var controller = Botkit.slackbot({
