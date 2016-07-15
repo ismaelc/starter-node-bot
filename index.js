@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/slack/webhook', function(request, response) {
-    console.log(request.body);
+    console.log("POGI: " + request.body);
     response.send("pogi");
 });
 
