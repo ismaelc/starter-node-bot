@@ -11,6 +11,18 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); // to support URL-encoded bodies
 
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
+
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+app.get('/', function(request, response) {
+  response.render('pages/index');
+});
+
 var token = process.env.SLACK_TOKEN
 
 var controller = Botkit.slackbot({
