@@ -8,7 +8,7 @@ var controller = Botkit.slackbot({
     debug: false
 })
 
-console.log("ENVIRONMENT: " + process.env);
+console.log("ENVIRONMENT: " + JSON.stringify(process.env));
 
 // Assume single team mode if we have a SLACK_TOKEN
 if (token) {
