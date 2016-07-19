@@ -1,33 +1,4 @@
 var Botkit = require('botkit')
-var express  = require('express')
-var app      = express()
-
-var bodyParser = require('body-parser');
-app.use(bodyParser.json({
-    limit: '50mb'
-})); // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({
-    limit: '50mb',
-    extended: true
-})); // to support URL-encoded bodies
-
-app.set('port', (process.env.PORT || 5000));
-
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-//TODO: Need to secure these incoming calls
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-app.post('/slack/webhook', function(request, response) {
-    console.log("POGI: " + request.body);
-    response.send("pogi");
-});
 
 var token = process.env.SLACK_TOKEN
 
@@ -36,6 +7,8 @@ var controller = Botkit.slackbot({
     retry: Infinity,
     debug: false
 })
+
+console.log("ENVIRONMENT: " + process.env);
 
 // Assume single team mode if we have a SLACK_TOKEN
 if (token) {
@@ -59,7 +32,7 @@ if (token) {
 
 // receive an interactive message, and reply with a message that will replace the original
 controller.on('interactive_message_callback', function(bot, message) {
-    
+
     console.log("GOT INTERACTIVE CALLBACK");
 
     // check message.actions and message.callback_id to see what action to take...
@@ -299,7 +272,3 @@ controller.hears(['approval02'], ['direct_message', 'direct_mention'], function(
 controller.hears('.*', ['direct_message', 'direct_mention'], function(bot, message) {
     bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
